@@ -1,0 +1,136 @@
+html{
+    /* default font size for brozswer=16px. 16px * 62.5 = 10px = 1rem. 
+    to get value multiple rems*10 to get the real number in pixels */
+    font-size: 62.5%; 
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0; /* get rid of the defualt margin around the body: ; */
+    height: 100vh; /* set height to the full height */
+    font-size: 1.6rem;
+    font-family: Helvetica Arial, sans-serif;
+}
+
+/* layout: */
+.grid-container {
+    display: grid;
+    /* 3 sections here */
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer';
+    /* define rows and columns */
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr 5rem;
+    height: 100%; 
+}
+
+header {
+    /* connect header element to the header template in grid-template-areas:  */ 
+    grid-area: header;
+    background-color: #203040;
+}
+
+main {
+    grid-area: main;
+    padding: 1rem;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #203040;
+    color: #ffffff; 
+}
+
+/* common classes */
+h1 {
+    font-size: 1.8rem;
+    /* vert, horiz */
+    padding: 1rem 0rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    /* vert, horiz */
+    padding: 1rem 0rem;
+}
+
+a{
+    /* remove lines under anchor tags */
+    text-decoration: none; 
+}
+
+/* if hover happens on a link change color */
+a:hover {
+    color: #ff8000;
+}
+
+/* links inside headers -> all links inside headers: */
+header a{
+    color: #ffffff;
+    padding: 1rem;
+}
+
+/* a tag that has brand class */
+a.brand {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* will use flexbox to move things horizontally. must create a row class to use.
+row class will put item next to each not in separate lines*/
+.row {
+    /* display: flex puts items in row next to each other instead of pushing down on new lines  */
+    display: flex;
+    flex-wrap: wrap; /* make rows responsive. so if theres enough space it will be on separate lines */
+    justify-content: space-between; /* create maxiumum distance between items in a row */
+    align-items: center; /* vertically centered  */
+}
+
+/* add a subclass to row */
+.row.center {
+    /* if its centered set justify-content to center */
+    justify-content: center;
+}
+
+/* images: */
+img {
+    border-radius: 0.5rem;
+}
+/* img w/ class medium */
+img.medium {
+    max-width: 29rem;
+    width: 100%;
+}
+
+/* card: */
+/* this is where each of our items lives */
+.card {
+    /* border w/ width, color, style */
+    border: 0.1rem #c0c0c0 solid;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+/* all elements inside card body. All direct children of card-body */
+.card-body > *{
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 2rem;
+}
+
+/* rating */
+/* all spans inside rating:  */
+.rating span {
+    color: #f0c040;
+    margin: 0.1rem;
+}
